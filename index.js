@@ -5,7 +5,7 @@ app.set('port', (process.env.PORT || 8080))
 app.use(express.static(__dirname + '/public'))
 
 app.get('/', function(request, response) {
-  response.send('Development branch changes ')
+  response.send(' Promotion is working correctly ')
 })
 
 app.listen(app.get('port'), function() {
