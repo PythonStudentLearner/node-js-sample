@@ -5,7 +5,7 @@ app.set('port', (process.env.PORT || 8080))
 app.use(express.static(__dirname + '/public'))
 
 app.get('/', function(request, response) {
-  response.send('Git - aws -heroku')
+  response.send('------------------------------------------------------------------Git - aws -heroku')
 })
 
 app.listen(app.get('port'), function() {
