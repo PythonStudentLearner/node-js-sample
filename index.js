@@ -1,27 +1,17 @@
 var express = require('express')
-var app = express();
 
+var app = express()
+app.set('view engine', 'ejs')
+app.engine('html', require('ejs').renderFile)
 
-var http = require('http');
-var fs = require('fs');
-var index = fs.readFileSync('./bootstrap/index.html');
-
-
-
-app.set('port', (process.env.PORT || 8080))
-
-app.use(express.static(__dirname + '/public'))
-
-//app.get('/', function(request, response) {
-//  response.send('bootstrap/index.html') })
-
-http.createServer(function (req, res) {
-  res.writeHead(200, {'Content-Type': 'text/plain'});
-  res.end(index);
-}).listen(9615);
-
-
-
-app.listen(app.get('port'), function() {
- console.log("Node app is running at localhost:" + app.get('port'))
+app.get('/', function(req, res) {
+  res.render('./bootstrap/index.html')
 })
+
+var port = process.env.PORT || 8080;
+app.listen(port, function() {
+  console.log("Listening on " + port);
+})
+
+
+
